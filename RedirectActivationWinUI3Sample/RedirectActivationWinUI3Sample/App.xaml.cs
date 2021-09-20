@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -50,7 +51,11 @@ namespace RedirectActivationWinUI3Sample
             if (!main.IsCurrent)
             {
                 await main.RedirectActivationToAsync(modernArgs);
-                Exit();
+
+                // Exit() API doesn't work, bug https://github.com/microsoft/microsoft-ui-xaml/issues/5931
+                // Therefore, using Process APIs instead
+                Process.GetCurrentProcess().Kill();
+
                 return;
             }
 
