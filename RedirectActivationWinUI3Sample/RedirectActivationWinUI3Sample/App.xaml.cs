@@ -65,22 +65,18 @@ namespace RedirectActivationWinUI3Sample
             MainWindow.Activate();
         }
 
-
-        [DllImport("Microsoft.Internal.FrameworkUdk.dll", EntryPoint = "Windowing_GetWindowHandleFromWindowId", CharSet = CharSet.Unicode)]
-
-        public static extern IntPtr GetWindowIdFromWindowHandle(IntPtr hwnd, out WindowId result);
-
         private void Main_Activated(object sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)
         {
             MainWindow.DispatcherQueue.TryEnqueue(() =>
             {
                 // Update the UI (button) to show it was redirected
                 MainWindow.UpdateAsRedirected();
+                
+                // Bring the window to the foreground... first get the window handle...
+                IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
 
-                // Try to bring the window to foreground (currently doesn't work due to foreground rights not being there)
-                GetWindowIdFromWindowHandle(WinRT.Interop.WindowNative.GetWindowHandle(MainWindow), out WindowId myWindowId);
-                var appWindow = AppWindow.GetFromWindowId(myWindowId);
-                appWindow.Show(true);
+                // And then call SetForegroundWindow... requires Microsoft.Windows.CsWin32 NuGet package and a NativeMethods.txt file with SetForegroundWindow method
+                Windows.Win32.PInvoke.SetForegroundWindow((Windows.Win32.Foundation.HWND)windowHandle);
             });
         }
 
