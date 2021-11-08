@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "RedirectActivationWinUI3Sample": {
+      "commandName": "MsixPackage"
+    }
+  }
+}

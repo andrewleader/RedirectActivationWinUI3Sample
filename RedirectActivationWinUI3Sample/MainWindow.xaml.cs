@@ -33,9 +33,9 @@ namespace RedirectActivationWinUI3Sample
             myButton.Content = "Clicked";
         }
 
-        public void UpdateAsRedirected()
+        public void SetAsReceivedRedirection()
         {
-            myButton.Content = "Received redirection at " + DateTime.Now.ToString("t");
+            myButton.Content = "Received redirection at " + DateTime.Now.ToShortTimeString();
         }
     }
 }

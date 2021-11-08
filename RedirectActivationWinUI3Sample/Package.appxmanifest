@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="18b8eaf5-a504-49c1-a600-178e19caa362"
+    Name="75df1d50-66ad-4940-a77b-c148317f8f77"
     Publisher="CN=aleader"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>RedirectActivationWinUI3Sample (Package)</DisplayName>
+    <DisplayName>RedirectActivationWinUI3Sample</DisplayName>
     <PublisherDisplayName>aleader</PublisherDisplayName>
-    <Logo>Images\StoreLogo.png</Logo>
+    <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -31,13 +31,13 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="RedirectActivationWinUI3Sample (Package)"
-        Description="RedirectActivationWinUI3Sample (Package)"
+        DisplayName="RedirectActivationWinUI3Sample"
+        Description="RedirectActivationWinUI3Sample"
         BackgroundColor="transparent"
-        Square150x150Logo="Images\Square150x150Logo.png"
-        Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Images\SplashScreen.png" />
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
